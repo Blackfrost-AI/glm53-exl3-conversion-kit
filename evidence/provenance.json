@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-08-29T04:05:46Z",
+  "objective": "Convert the verified full GLM-5.3 DWM BF16 checkpoint to EXL3 2.0 bpw HQ and test for behavioral snapback.",
+  "source": {
+    "architecture": "GlmMoeDsaForCausalLM",
+    "parameters": 753329940480,
+    "decoder_layers": 78,
+    "mtp_layers": 1,
+    "safetensors_shards": 161,
+    "safetensors_bytes": 1506667419168,
+    "config_sha256": "ca8f2f47b07919a514c0ca223dc2ea2bc7445afaa5ac76c013a3784e096426ca",
+    "index_sha256": "ea558ab1584b518fec4bbc928cfe66018d8c38b0a94c9b8ae336e7fc82b79479",
+    "tokenizer_sha256": "2f2005e8bb3fa61c8b16cb0177e09eae30726d3658e0302da790ca27b5fbfd6b"
+  },
+  "toolchain": {
+    "exllamav3_commit": "0c49587a7c235e6303a6bbedc8b665272ad3a2ea",
+    "exllamav3_version": "1.4.4",
+    "tabbyapi_commit": "fcc1a1078e1f766dad305045c7c4d30aaefa6458",
+    "container": "lmsysorg/sglang@sha256:16aba8925507e631e1dc1e23d95d026533602591775f6a8db68b74ee99746155",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "flash_linear_attention": "0.5.2",
+    "target_compute_capability": "sm_100"
+  },
+  "hardware": {
+    "conversion_gpus": 8,
+    "conversion_gpu_model": "NVIDIA B200",
+    "memory_per_gpu_mib": 183359,
+    "serving_gpus": 2
+  },
+  "quantization": {
+    "format": "EXL3",
+    "requested_decoder_bpw": 2.0,
+    "effective_decoder_bpw": 2.04,
+    "hq": true,
+    "head_bpw": 6,
+    "mtp_bpw": 2,
+    "codebook": "mul1",
+    "output_channel_scales": "always",
+    "calibration_source": "ExLlamaV3 bundled corpus mix",
+    "calibration_rows": 250,
+    "calibration_columns": 2048,
+    "devices": [0, 1, 2, 3, 4, 5, 6, 7]
+  },
+  "conversion": {
+    "started_utc": "2026-08-28T23:43:54Z",
+    "finished_utc": "2026-08-29T03:45:09Z",
+    "duration_seconds": 14475,
+    "resumable_work_bytes": 222708121206,
+    "last_completed_module_index": 79,
+    "bad_rows": [],
+    "full_log_sha256": "961161ade5aca6471af40066aeb3820e2014d365e5a5596358fc400c6c3095dc"
+  },
+  "output": {
+    "name": "GLM-5.3-DERISKED-EXL3-2.0bpw-HQ",
+    "safetensors_shards": 26,
+    "directory_bytes": 197648095811,
+    "directory_gb_decimal": 197.648095811,
+    "directory_gib_binary": 184.074133459,
+    "config_sha256": "76ba7184a590b43fdeec83d0019788ac694286759b6659ffdfcb04694c7899d3",
+    "quantization_config_sha256": "63cb1a965d02718199811c52f462251df15638d743ae4133a7dbbb02e8fc0983",
+    "index_sha256": "ed01727e2ed48ff2218d8a4383a4409c9f21dc2ccfdaab7e7f84e510a9265784",
+    "tokenizer_sha256": "2f2005e8bb3fa61c8b16cb0177e09eae30726d3658e0302da790ca27b5fbfd6b"
+  },
+  "serving": {
+    "backend": "TabbyAPI with ExLlamaV3",
+    "max_sequence_length": 32768,
+    "cache_mode": "FP16",
+    "mtp_drafting_enabled": false,
+    "single_model_catalog": true,
+    "smoke_test": "passed"
+  },
+  "behavioral_result": {
+    "snapback_observed": false,
+    "status": "operator-reported",
+    "private_harness_evidence_included": false,
+    "note": "Initial no-snapback test used the converted model with MTP drafting disabled."
+  }
+}

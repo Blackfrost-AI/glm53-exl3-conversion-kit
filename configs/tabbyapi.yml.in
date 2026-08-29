@@ -1,0 +1,50 @@
+network:
+  host: __BIND_HOST__
+  port: __BIND_PORT__
+  disable_auth: __DISABLE_AUTH__
+  disable_fetch_requests: true
+  api_servers: ["OAI"]
+
+logging:
+  log_prompt: false
+  log_generation_params: false
+  log_requests: false
+  log_chat_completion_requests: false
+
+model:
+  model_dir: /models
+  inline_model_loading: false
+  use_dummy_models: false
+  model_name: __MODEL_NAME__
+  backend: exllamav3
+  max_seq_len: 32768
+  cache_size: 32768
+  cache_mode: FP16
+  tensor_parallel: false
+  gpu_split_auto: true
+  autosplit_reserve: [1024, 1024]
+  gpu_split: []
+  chunk_size: 2048
+  output_chunking: true
+  max_batch_size: 4
+  reasoning: true
+  reasoning_start_token: "<think>"
+  reasoning_end_token: "</think>"
+  start_in_reasoning: auto
+  tool_calls_in_reasoning: true
+  tool_format: glm4_7
+
+draft_model:
+  draft_mode: disabled
+
+sampling:
+  override_preset:
+
+memory:
+  sysmem_recurrent_cache: 4096
+  sysmem_kv_cache: 0
+  cuda_malloc_async: true
+
+developer:
+  unsafe_launch: false
+  disable_request_streaming: false

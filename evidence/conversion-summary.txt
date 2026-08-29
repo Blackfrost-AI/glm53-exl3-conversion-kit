@@ -1,0 +1,21 @@
+Architecture: GlmMoeDsaForCausalLM
+MTP model: discovered and converted as model.layers.78
+Vocabulary size: 154856 tokenizer entries
+Calibration size: 250 rows x 2048 columns
+Target bitrate: 2.0 bpw decoder, 6 bpw head
+HQ allocation: enabled
+Final bitrate excluding head: 2.04 bpw
+MTP bitrate: 2 bpw
+Codebook: mul1
+Output scales: always
+Output shards: 26
+Output bytes: 197648095811
+Work-state bytes retained: 222708121206
+Bad calibration rows: none
+Start UTC: 2026-08-28T23:43:54Z
+Finish UTC: 2026-08-29T03:45:09Z
+Final converter message: Finished compiling model; all done
+Structural validation: passed
+Per-shard SHA-256 validation: passed
+OpenAI-compatible smoke generation: passed
+Operator snapback test: no snapback reported

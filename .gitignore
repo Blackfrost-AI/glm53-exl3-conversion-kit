@@ -1,0 +1,51 @@
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.token
+credentials*
+secrets*
+
+# Model weights and resumable conversion state
+*.safetensors
+*.safetensors.*
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.gguf
+*.exl3
+state/
+work/
+output/
+models/
+checkpoints/
+qtensors/
+
+# Runtime and build products
+venv/
+.venv/
+runtime/
+torch_extensions/
+*.so
+*.o
+*.cubin
+*.ptx
+*.log
+__pycache__/
+*.py[cod]
+
+# Local packages and archives
+vendor/
+tools/
+dist/
+*.tar
+*.tar.gz
+*.zip
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+*~
